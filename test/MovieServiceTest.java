@@ -21,7 +21,7 @@ class MovieServiceTest {
 		
 		// given
 		Retrofit retrofit = new Retrofit.Builder()
-				.baseUrl("")
+				.baseUrl("http://api.rottentomatoes.com/")
 				.addConverterFactory(GsonConverterFactory.create())
 				.build();
 		
