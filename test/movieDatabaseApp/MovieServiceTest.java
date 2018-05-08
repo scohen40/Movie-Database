@@ -1,3 +1,5 @@
+package movieDatabaseApp;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
@@ -21,7 +23,7 @@ class MovieServiceTest {
 		
 		// given
 		Retrofit retrofit = new Retrofit.Builder()
-				.baseUrl("http://api.rottentomatoes.com/")
+				.baseUrl("https://hydramovies.com/api-v2/")
 				.addConverterFactory(GsonConverterFactory.create())
 				.build();
 		

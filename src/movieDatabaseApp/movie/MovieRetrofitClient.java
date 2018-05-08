@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieRetrofitClient {
 	Retrofit retrofit = new Retrofit.Builder()
-			.baseUrl("http://api.rottentomatoes.com/")
+			.baseUrl("https://hydramovies.com/api-v2/")
 			.addConverterFactory(GsonConverterFactory.create())
 			.build();
 	MovieService service = 

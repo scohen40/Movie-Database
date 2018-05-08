@@ -4,29 +4,35 @@ import java.lang.reflect.Array;
 
 public class Movie_Results {
 
-	private String title;
-	private String id;
-	private String year;
+	private String Title;
+	private String movie_year;
+	private String summary;
 	private int runtime;
-	private String mpaa_rating;
+	private String imdb_rating;
+	private String language;
 
 	public String getTitle() {
-		return title;
+		return Title;
 	}
 
-	public String getId() {
-		return id;
+	public String getMovie_year() {
+		return movie_year;
 	}
 
-	public String getYear() {
-		return year;
+	public String getSummary() {
+		return summary;
 	}
 
 	public int getRuntime() {
 		return runtime;
 	}
 
-	public String getMpaa_rating() {
-		return mpaa_rating;
+	public String getImdb_rating() {
+		return imdb_rating;
 	}
+
+	public String getLanguage() {
+		return language;
+	}
+
 }
