@@ -28,7 +28,7 @@ class MovieServiceTest {
 				.build();
 		
 		MovieService service = retrofit.create(MovieService.class);
-		Call<MovieFeedModel> call = service.getMovieByTitle("New York Doll");
+		Call<MovieFeedModel> call = service.getAllMovies();
 		
 		// when
 		Response<MovieFeedModel> response = call.execute();
@@ -36,11 +36,31 @@ class MovieServiceTest {
 		// then
 		assertNotNull(response.body());
 		
-//		List<Movie> movies = response.body().results();
-//		assertTrue(movies.size() > 0);
-//		
-//		String title = movies.get(0).getResults().getTitle();
-//		assertNotNull(title);
-//		
+		List<Movie> movies = response.body().results();
+		assertTrue(movies.size() > 0);
+		
+		String title = movies.get(0).getResults().getTitle();
+		assertNotNull(title);
+		
 	}
+	
+	@Test
+	public void testGetMovieByTitle() throws IOException {
+		
+		// given
+		Retrofit retrofit = new Retrofit.Builder()
+				.baseUrl("https://hydramovies.com/api-v2/")
+				.addConverterFactory(GsonConverterFactory.create())
+				.build();
+		
+		MovieService service = retrofit.create(MovieService.class);
+		Call<MovieFeedModel> call = service.getMovieByTitle("New York Doll");
+		
+		// when
+		Response<MovieFeedModel> response = call.execute();
+		
+		// then
+		assertNotNull(response.body());
+	}
+		
 }
