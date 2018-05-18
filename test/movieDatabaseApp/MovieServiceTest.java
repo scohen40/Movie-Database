@@ -8,9 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import movieDatabaseApp.movie.Movie;
-import movieDatabaseApp.movie.MovieFeedModel;
 import movieDatabaseApp.movie.MovieService;
-import movieDatabaseApp.movie.Movie_Results;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -28,18 +26,18 @@ class MovieServiceTest {
 				.build();
 		
 		MovieService service = retrofit.create(MovieService.class);
-		Call<MovieFeedModel> call = service.getAllMovies();
+		Call<List<Movie>> call = service.getAllMovies();
 		
 		// when
-		Response<MovieFeedModel> response = call.execute();
+		Response<List<Movie>> response = call.execute();
 		
 		// then
 		assertNotNull(response.body());
 		
-		List<Movie> movies = response.body().results();
+		List<Movie> movies = response.body();
 		assertTrue(movies.size() > 0);
 		
-		String title = movies.get(0).getResults().getTitle();
+		String title = movies.get(0).getTitle();
 		assertNotNull(title);
 		
 	}
@@ -54,10 +52,10 @@ class MovieServiceTest {
 				.build();
 		
 		MovieService service = retrofit.create(MovieService.class);
-		Call<MovieFeedModel> call = service.getMovieByTitle("New York Doll");
+		Call<List<Movie>> call = service.getMovieByTitle("N");
 		
 		// when
-		Response<MovieFeedModel> response = call.execute();
+		Response<List<Movie>> response = call.execute();
 		
 		// then
 		assertNotNull(response.body());

@@ -1,6 +1,7 @@
 package movieDatabaseApp.movie;
 
-import movieDatabaseApp.movie.MovieFeedModel;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -8,9 +9,12 @@ import retrofit2.http.Query;
 
 public interface MovieService {
 	@GET("?source=http://hydramovies.com/api-v2/current-Movie-Data.csv")
-	Call<MovieFeedModel> getAllMovies();
+	Call<List<Movie>> getAllMovies();
 	
 	@GET("?source=http://hydramovies.com/api-v2/current-Movie-Data.csv")
-	Call<MovieFeedModel> getMovieByTitle(@Query("range") String range);
+	Call<List<Movie>> getMovieByTitle(@Query("range") String range);
+	
+	@GET("?source=http://hydramovies.com/api-v2/current-Movie-Data.csv&movie_year=2018")
+	Call<List<Movie>> getMovies2018();
 	
 }
