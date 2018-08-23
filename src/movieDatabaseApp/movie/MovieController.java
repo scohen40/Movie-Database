@@ -106,7 +106,7 @@ public class MovieController {
 			JTextComponent language) 
 	{
 		Optional<Movie> highest = list.stream()
-				.max(Comparator.comparing(e -> Integer.parseInt(e.getImdb_rating())));
+				.max(Comparator.comparingDouble(e -> Double.parseDouble(e.getImdb_rating())));
 		
 		title.setText(String.valueOf(highest.get().getTitle()));
 		year.setText(String.valueOf(highest.get().getMovie_year()));
