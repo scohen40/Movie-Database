@@ -32,14 +32,16 @@ public class MovieController {
 	}
 	
 	public void requestHighest2018() {
-		requestHighestMovies(service.getMovies2018(),
+		requestHighestMovies(service.getAllMovies(),
+//		requestHighestMovies(service.getMovies2018(),
 				view.gethTitleField(),
 				view.gethYearField(),
 				view.gethRatingField(),
 				view.gethLanguageField());			
 	}
 	void requestLowest2018() {
-		requestLowestMovies(service.getMovies2018(),
+		requestLowestMovies(service.getAllMovies(),
+//		requestLowestMovies(service.getMovies2018(),
 				view.getlTitleField(),
 				view.getlYearField(),
 				view.getlRatingField(),
