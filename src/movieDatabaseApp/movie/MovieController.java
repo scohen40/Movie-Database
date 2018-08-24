@@ -32,14 +32,16 @@ public class MovieController {
 	}
 	
 	public void requestHighest2018() {
-		requestHighestMovies(service.getMovies2018(),
+		requestHighestMovies(service.getAllMovies(),
+//		requestHighestMovies(service.getMovies2018(),
 				view.gethTitleField(),
 				view.gethYearField(),
 				view.gethRatingField(),
 				view.gethLanguageField());			
 	}
 	void requestLowest2018() {
-		requestLowestMovies(service.getMovies2018(),
+		requestLowestMovies(service.getAllMovies(),
+//		requestLowestMovies(service.getMovies2018(),
 				view.getlTitleField(),
 				view.getlYearField(),
 				view.getlRatingField(),
@@ -104,7 +106,8 @@ public class MovieController {
 			JTextComponent language) 
 	{
 		Optional<Movie> highest = list.stream()
-				.max(Comparator.comparing(e -> Integer.parseInt(e.getImdb_rating())));
+				.max(Comparator.comparing(e -> e.getImdb_rating()));
+		
 		
 		title.setText(String.valueOf(highest.get().getTitle()));
 		year.setText(String.valueOf(highest.get().getMovie_year()));
@@ -119,7 +122,7 @@ public class MovieController {
 			JTextComponent language) 
 	{
 		Optional<Movie> lowest = list.stream()
-				.min(Comparator.comparing(e -> Integer.parseInt(e.getImdb_rating())));
+				.min(Comparator.comparing(e -> e.getImdb_rating()));
 		
 		title.setText(String.valueOf(lowest.get().getTitle()));
 		year.setText(String.valueOf(lowest.get().getMovie_year()));

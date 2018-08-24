@@ -21,7 +21,7 @@ import com.google.inject.Singleton;
 @Singleton
 public class MovieView extends JFrame {
 
-	private JLabel title = new JLabel("2018 Movie Ratings", SwingConstants.CENTER);
+	private JLabel title = new JLabel("Hydra Movie Database API Integration", SwingConstants.CENTER);
 	private JLabel highest = new JLabel("Highest Rating: ", SwingConstants.CENTER);
 	private JLabel lowest = new JLabel("Lowest Rating: ", SwingConstants.CENTER);
 	private JLabel hTitle = new JLabel("Title: ", SwingConstants.CENTER);
