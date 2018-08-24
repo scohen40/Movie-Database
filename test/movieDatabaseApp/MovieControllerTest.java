@@ -47,9 +47,9 @@ class MovieControllerTest {
 		JTextField language = Mockito.mock(JTextField.class);
 
 		List<Movie> list = new ArrayList<Movie>();
-		list.add(new Movie("bk", "2017", "2", "english"));
-		list.add(new Movie("qu", "2018", "6", "spanish"));
-		list.add(new Movie("mh", "2018", "1", "hebrew"));
+		list.add(new Movie("bk", "2017", 2.0, "english"));
+		list.add(new Movie("qu", "2018", 6.0, "spanish"));
+		list.add(new Movie("mh", "2018", 1.0, "hebrew"));
 
 		// when
 		controller.showHighest(list, title, year, rating, language);

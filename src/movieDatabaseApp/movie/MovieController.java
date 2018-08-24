@@ -105,8 +105,8 @@ public class MovieController {
 			JTextComponent rating,
 			JTextComponent language) 
 	{
-		Optional<Movie> highest = list.stream().filter(e -> e!=null)
-				.max(Comparator.comparingDouble(e -> Double.parseDouble(e.getImdb_rating())));
+		Optional<Movie> highest = list.stream()
+				.max(Comparator.comparing(e -> e.getImdb_rating()));
 		
 		
 		title.setText(String.valueOf(highest.get().getTitle()));
@@ -121,8 +121,8 @@ public class MovieController {
 			JTextComponent rating,
 			JTextComponent language) 
 	{
-		Optional<Movie> lowest = list.stream().filter(a -> a!=null)
-				.min(Comparator.comparingDouble(e -> Double.parseDouble(e.getImdb_rating())));
+		Optional<Movie> lowest = list.stream()
+				.min(Comparator.comparing(e -> e.getImdb_rating()));
 		
 		title.setText(String.valueOf(lowest.get().getTitle()));
 		year.setText(String.valueOf(lowest.get().getMovie_year()));
